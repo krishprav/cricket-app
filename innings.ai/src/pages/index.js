@@ -1,114 +1,87 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import React from 'react';
+import Head from 'next/head';
+import LiveMatches from '../components/LiveMatches';
+import { FaCricket, FaChartLine, FaCalendarAlt, FaUserFriends, FaTrophy } from 'react-icons/fa';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
+const HomePage = () => {
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <Head>
+        <title>CricketLive - Real-time Cricket Scores</title>
+        <meta name="description" content="Get live cricket scores, match updates, and AI-powered predictions for cricket matches around the world." />
+      </Head>
+      
+      <div className="max-w-7xl mx-auto">
+        {/* Hero Section */}
+        <div className="mb-8 p-8 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl text-white shadow-lg">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Live Cricket Scores & Analysis</h1>
+          <p className="text-lg opacity-90 mb-6 max-w-2xl">
+            Follow live cricket matches with real-time updates, advanced statistics, and AI-powered predictions.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <button className="bg-white text-indigo-600 hover:bg-indigo-50 px-6 py-3 rounded-lg font-medium transition-colors shadow-md">
+              Live Matches
+            </button>
+            <button className="bg-indigo-700 hover:bg-indigo-800 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-md">
+              View Tournaments
+            </button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        
+        {/* Featured Matches */}
+        <LiveMatches />
+        
+        {/* Features Section */}
+        <div className="mt-12 mb-16">
+          <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-white">
+            Why Choose CricketLive
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <FeatureCard 
+              icon={<FaCricket className="text-indigo-500" size={24} />}
+              title="Real-Time Updates"
+              description="Get ball-by-ball updates and live commentary for all international and major domestic cricket matches."
+            />
+            <FeatureCard 
+              icon={<FaChartLine className="text-indigo-500" size={24} />}
+              title="Advanced Analytics"
+              description="Dive deep into match statistics, player performances, and historical data to understand the game better."
+            />
+            <FeatureCard 
+              icon={<FaCalendarAlt className="text-indigo-500" size={24} />}
+              title="Comprehensive Coverage"
+              description="Follow matches across all formats - Tests, ODIs, T20Is, and major leagues like IPL, BBL, and more."
+            />
+            <FeatureCard 
+              icon={<FaUserFriends className="text-indigo-500" size={24} />}
+              title="Social Experience"
+              description="Share your thoughts, create prediction leagues, and compete with friends for the ultimate cricket fan experience."
+            />
+            <FeatureCard 
+              icon={<FaTrophy className="text-indigo-500" size={24} />}
+              title="Tournament Tracking"
+              description="Keep track of tournament points tables, team standings, and playoff scenarios all in one place."
+            />
+            <FeatureCard 
+              icon={<FaBrain className="text-indigo-500" size={24} />}
+              title="AI Match Predictions"
+              description="Get advanced AI-powered predictions for match outcomes, player performances, and key turning points."
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const FeatureCard = ({ icon, title, description }) => {
+  return (
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow">
+      <div className="mb-4">{icon}</div>
+      <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">{title}</h3>
+      <p className="text-gray-600 dark:text-gray-300">{description}</p>
     </div>
   );
-}
+};
+
+export default HomePage;
