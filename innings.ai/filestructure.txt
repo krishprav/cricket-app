@@ -1,0 +1,44 @@
+/workspaces/cricket-app/
+├── README.md
+└── innings.ai/
+    ├─] .env (ignored)
+    ├── .gitignore
+    ├── README.md
+    ├── jsconfig.json
+    ├── next.config.mjs
+    ├─] node_modules/ (ignored)
+    ├── package-lock.json
+    ├── package.json
+    ├── postcss.config.mjs
+    ├── public/
+    └── src/
+        ├── App.js
+        ├── components/
+        │   ├── AIPredictor.js
+        │   ├── Header.js
+        │   ├── Highlights.js
+        │   ├── LiveMatches.js
+        │   ├── MatchDetails.js
+        │   ├── PointsTable.js
+        │   ├── Scorecard.js
+        │   ├── SocialShare.js
+        │   ├── Squads.js
+        │   └── ThemeSwitcher.js
+        ├── contexts/
+        │   └── ThemeContext.js
+        ├── hooks/
+        │   ├── useMatchData.js
+        │   └── useWebSocket.js
+        ├── pages/
+        │   ├── _app.js
+        │   ├── _document.js
+        │   ├── index.js
+        │   └── match/
+        │       └── [id].js
+        ├── styles/
+        │   ├── Home.module.css
+        │   └── globals.css
+        └── utils/
+            ├── aiPredictor.js
+            ├── api.js
+            └── formatters.js

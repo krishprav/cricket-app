@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #4338ca;
+  --primary-light: #6366f1;
+  --secondary: #10b981;
+  --accent: #f59e0b;
+  --background-light: #f9fafb;
+  --text-light: #111827;
+  --card-light: #ffffff;
+  --background-dark: #0f172a;
+  --text-dark: #f3f4f6;
+  --card-dark: #1e293b;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-sm md:text-base;
+  }
+  
+  body.dark {
+    @apply bg-gray-900 text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .bg-blur {
+    backdrop-filter: blur(8px);
+  }
