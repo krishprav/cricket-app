@@ -201,3 +201,36 @@ const Scorecard = ({ matchData }) => {
                       </tr>
                     ))}
                     
+                    {scorecard[teams[activeTeam]].bowling.length === 0 && (
+                      <tr>
+                        <td colSpan="8" className="px-3 py-4 text-sm text-center text-gray-500 dark:text-gray-400">
+                          No bowling data available yet
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            {/* Extra statistics or information */}
+            {scorecard[teams[activeTeam]].extras && (
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <span className="font-medium">Extras:</span> {scorecard[teams[activeTeam]].extras}
+                </p>
+                {scorecard[teams[activeTeam]].fallOfWickets && (
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                    <span className="font-medium">Fall of Wickets:</span> {scorecard[teams[activeTeam]].fallOfWickets}
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Scorecard;
